@@ -9,7 +9,7 @@ import Profile from './components/Profile'
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/Chat">
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route element={<Home />} path='/home' ></Route>
