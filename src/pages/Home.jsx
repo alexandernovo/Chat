@@ -51,7 +51,7 @@ const Home = () => {
             setToggle(false);
         } else {
             // If it's a small screen or the keyboard is visible, hide the sidebar
-            setToggle(!toggle);
+            setToggle(false);
         }
 
         return () => {
