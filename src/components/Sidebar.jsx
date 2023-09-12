@@ -64,7 +64,7 @@ const Sidebar = ({ onClick, toggle, setToggle, handleProfile }) => {
         <div className={`w-[280px] h-full p-3 ${toggle ? 'block absolute top-0 z-10 w-full glass-blackest flex flex-col' : 'hidden glass-blacker'} lg:block overflow-y-hidden`}>
             <div className='flex items-center py-3 justify-between'>
                 <div className='flex items-center'>
-                    <img src={session && session.image ? session.image : Placeholder} className='h-10 w-10 rounded-full' />
+                    <img src={session && session.image ? session.image : Placeholder} className='h-10 w-10 rounded-full object-cover' />
                     <h1 className='text-[14.6px] text-white ms-1'>{session && `${session.firstname} ${session.lastname} `}</h1>
                 </div>
                 <div className='flex items-center'>
