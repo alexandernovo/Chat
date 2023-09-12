@@ -2,7 +2,7 @@ import React from 'react'
 
 const Layout = ({ children }) => {
     return (
-        <div className='flex'>
+        <div className='flex h-full'>
             {children}
         </div>
     )
