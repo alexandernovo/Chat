@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '../layout/Layout';
-import ChatBox from '../components/ChatBox';
-import Sidebar from '../components/Sidebar';
-import Profile from '../components/Profile';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import Layout from '../layout/Layout'
+import ChatBox from '../components/ChatBox'
+import Sidebar from '../components/Sidebar'
+import Profile from '../components/Profile'
+import axios from 'axios'
 
 const Home = () => {
     const [contact, setContact] = useState({});
@@ -12,28 +12,7 @@ const Home = () => {
     const [showMessage, setShowMessage] = useState(true);
     const [showProfile, setShowProfile] = useState(false);
 
-    // Add a state to track keyboard visibility
-    const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-
-    // Handle keyboard visibility change
-    useEffect(() => {
-        const handleKeyboardVisibility = () => {
-            // Check if the viewport height has changed
-            const windowHeight = window.innerHeight;
-            const isKeyboardOpen = document.body.clientHeight < windowHeight;
-
-            setIsKeyboardVisible(isKeyboardOpen);
-        };
-
-        // Listen for the resize event to detect keyboard visibility change
-        window.addEventListener('resize', handleKeyboardVisibility);
-
-        return () => {
-            // Clean up the event listener when the component unmounts
-            window.removeEventListener('resize', handleKeyboardVisibility);
-        };
-    }, []);
-
+    //change the contact localstorage and to activate dependencies and to refetch messages in a selected contact
     // Change the contact local storage and activate dependencies to refetch messages for the selected contact
     const handleContact = (id) => {
         localStorage.setItem('contactID', id);
@@ -47,11 +26,11 @@ const Home = () => {
         }, 1500);
 
         // In large screens, it will not reactivate the sidebar
-        if (window.innerWidth >= 1280 && !isKeyboardVisible) {
+        if (window.innerWidth >= 1280) {
             setToggle(false);
         } else {
-            // If it's a small screen or the keyboard is visible, hide the sidebar
-            setToggle(false);
+            // If it's a small screen, hide the sidebar
+            setToggle(!toggle);
         }
 
         return () => {
@@ -61,14 +40,10 @@ const Home = () => {
 
     const handleProfile = () => setShowProfile(!showProfile);
 
-    const handleToggle = () => {
-        // Prevent toggle action if the keyboard is visible
-        if (!isKeyboardVisible) {
-            setToggle(!toggle);
-        }
-    };
+    const handleToggle = () => setToggle(!toggle);
 
-    // Fetching Contacts
+
+    //Fetching Contacts
     useEffect(() => {
         const fetchContact = async () => {
             try {
@@ -76,13 +51,14 @@ const Home = () => {
                 if (contactID) {
                     const response = await axios.get('/api/users/getContact', {
                         params: {
-                            id: contactID,
-                        },
+                            id: contactID
+                        }
                     });
                     if (response.data.status === 'success') {
                         setContact(response.data.data);
                     }
-                } else {
+                }
+                else {
                     setContact(null);
                 }
             } catch (error) {
@@ -93,15 +69,22 @@ const Home = () => {
         fetchContact();
     }, [localContact]);
 
-    // Set Untrue the sidebar in Bigger Screen
+    //set Untrue the sidebar in Bigger Screen
+    // set Untrue the sidebar in Bigger Screen
     useEffect(() => {
         const handleWindowResize = () => {
             if (window.innerWidth >= 1280) {
                 setToggle(false);
-            } else {
+            }
+            // Add a condition to check if the keyboard is open
+            else if (window.innerHeight >= window.innerWidth) {
+                setToggle(false);
+            }
+            else {
                 setToggle(true);
             }
         };
+
         handleWindowResize();
 
         window.addEventListener('resize', handleWindowResize);
@@ -110,6 +93,7 @@ const Home = () => {
             window.removeEventListener('resize', handleWindowResize);
         };
     }, []);
+
 
     return (
         <>
@@ -124,7 +108,7 @@ const Home = () => {
                 </div>
             </Layout>
         </>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home
