@@ -30,7 +30,7 @@ const Home = () => {
             setToggle(false);
         } else {
             // If it's a small screen, hide the sidebar
-            setToggle(!toggle);
+            setToggle(true);
         }
 
         return () => {
