@@ -70,21 +70,15 @@ const Home = () => {
     }, [localContact]);
 
     //set Untrue the sidebar in Bigger Screen
-    // set Untrue the sidebar in Bigger Screen
     useEffect(() => {
         const handleWindowResize = () => {
             if (window.innerWidth >= 1280) {
-                setToggle(false);
-            }
-            // Add a condition to check if the keyboard is open
-            else if (window.innerHeight >= window.innerWidth) {
                 setToggle(false);
             }
             else {
                 setToggle(true);
             }
         };
-
         handleWindowResize();
 
         window.addEventListener('resize', handleWindowResize);
@@ -93,7 +87,6 @@ const Home = () => {
             window.removeEventListener('resize', handleWindowResize);
         };
     }, []);
-
 
     return (
         <>
