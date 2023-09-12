@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/api/*"
   to = "https://chat-server-cjy8.onrender.com"
-  status = 200
+  status = 301
