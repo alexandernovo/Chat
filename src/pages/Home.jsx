@@ -78,7 +78,9 @@ const Home = () => {
             }
             // Add a condition to check if the keyboard is open
             else if (window.innerHeight >= window.innerWidth) {
-                setToggle(false);
+                if (!toggle) {
+                    setToggle(false);
+                }
             }
             else {
                 setToggle(true);
