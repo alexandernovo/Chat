@@ -80,6 +80,8 @@ const Home = () => {
             else if (window.innerHeight >= window.innerWidth) {
                 if (!toggle) {
                     setToggle(false);
+                } else {
+                    setToggle(true);
                 }
             }
             else {
