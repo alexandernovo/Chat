@@ -7,7 +7,7 @@ const Contact = ({ contact, onClick }) => {
             {contact && contact.length !== 0 ? (contact.map(result => (
                 <div key={result._id} className='mb-3 text-white cursor-pointer' onClick={() => onClick(result._id)}>
                     <div className='flex items-center py-1'>
-                        <img src={result.image ? result.image : Placeholder} className='h-11 w-11 rounded-full' />
+                        <img src={result.image ? result.image : Placeholder} className='h-11 w-11 rounded-full object-cover' />
                         <div className='ms-2'>
                             <h6 className='text-[14px]'>{contact ? (`${result.firstname} ${result.lastname}`) : ''}</h6>
                         </div>
