@@ -61,7 +61,7 @@ const Sidebar = ({ onClick, toggle, setToggle, handleProfile }) => {
     }, [searchInput]);
 
     return (
-        <div className={`w-[280px] h-screen p-3 ${toggle ? 'block absolute top-0 z-10 w-full glass-blackest' : 'hidden glass-blacker'} lg:block overflow-y-hidden`}>
+        <div className={`w-[280px] h-full p-3 ${toggle ? 'block absolute top-0 z-10 w-full glass-blackest flex flex-col' : 'hidden glass-blacker'} lg:block overflow-y-hidden`}>
             <div className='flex items-center py-3 justify-between'>
                 <div className='flex items-center'>
                     <img src={session && session.image ? session.image : Placeholder} className='h-10 w-10 rounded-full' />
@@ -88,7 +88,7 @@ const Sidebar = ({ onClick, toggle, setToggle, handleProfile }) => {
                 </svg>
             </div>
 
-            <div className='mt-4 h-full h-fit overflow-x-auto pb-12' >
+            <div className='mt-4 h-full overflow-x-auto ' >
                 {searchStatus ?
                     <Contact contact={searchResult.data} onClick={onClick} />
                     :

@@ -3,7 +3,7 @@ import Placeholder from '../assets/profile/placeholder.jpg';
 
 const Contact = ({ contact, onClick }) => {
     return (
-        <>
+        <div className='h-full'>
             {contact && contact.length !== 0 ? (contact.map(result => (
                 <div key={result._id} className='mb-3 text-white cursor-pointer' onClick={() => onClick(result._id)}>
                     <div className='flex items-center py-1'>
@@ -20,7 +20,7 @@ const Contact = ({ contact, onClick }) => {
                     <p className='text-gray-300 text-center text-[13px]'>No results found.</p>
                 )
             }
-        </>
+        </div>
     );
 };
 
