@@ -38,7 +38,10 @@ const Home = () => {
         };
     };
 
-    const handleProfile = () => setShowProfile(!showProfile);
+    const handleProfile = () => {
+        setToggle(false);
+        setShowProfile(!showProfile);
+    }
 
     const handleToggle = () => setToggle(!toggle);
 
