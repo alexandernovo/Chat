@@ -102,7 +102,7 @@ const Chat = ({ contact, setToggle, showMessage }) => {
         <div className='h-full glass flex flex-col justify-between'>
             <div className='p-3 flex justify-between items-center bck'>
                 <div className='flex items-center'>
-                    <img src={contact.image ? contact.image : Placeholder} className='h-9 w-9 rounded-full' alt='Avatar' />
+                    <img src={contact.image ? contact.image : Placeholder} className='h-9 w-9 rounded-full object-cover' alt='Avatar' />
                     <h6 className='text-[15px] text-white ms-1'>
                         {contact ? `${contact.firstname} ${contact.lastname}` : ''}
                     </h6>
