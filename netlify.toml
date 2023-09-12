@@ -1,5 +1,4 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://chat-server-cjy8.onrender.com/:path"
-  status = 301
-  force = true
+  to = "/.netlify/functions/redirect"
+  status = 200
