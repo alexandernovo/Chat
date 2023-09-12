@@ -1,5 +1,5 @@
 import React from 'react';
-import Placeholder from '../assets/profile/placholder.jpg';
+import Placeholder from '../assets/profile/placeholder.jpg';
 
 const Contact = ({ contact, onClick }) => {
     return (
